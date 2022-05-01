@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="../public/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../public/assets/css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-fluid" id="main">
+        <div class="row form-group">
+            <div class="col-lg-4 ml-5 mt-5" id="card1" style="display: none;">
+                <button class="btn shadow-none">
+                    <div class="card bg-primary " style="width: 18rem;">
+                        <div class="card-header">
+                            <h5 class="card-title text-white" id="btn1"></h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text text-white" id="count1"></p>
+                        </div>
+                </button>
+            </div>
+        </div>
+
+        <div class="col-lg-1"></div>
+
+        <div class="mt-5" id="card2" style="display: none;">
+            <button class="btn shadow-none">
+                <div class="card bg-primary" style="width: 18rem;">
+                    <div class="card-header">
+                        <h5 class="card-title text-white" id="btn2"></h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text text-white" id="count2"></p>
+                    </div>
+            </button>
+        </div>
+
+        <div class="col-lg-1"></div>
+
+        <div class="mt-5" id="card3" style="display: none;">
+            <button class="btn shadow-none">
+                <div class="card bg-primary" style="width: 18rem;">
+                    <div class="card-header">
+                        <h5 class="card-title text-white" id="btn3"></h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text text-white" id="count3"></p>
+                    </div>
+            </button>
+        </div>
+    </div>
+
+    <div class="container-fluid" id="sla" style="display: none;">
+        <div><button class="btn bg-primary text-white mt-5 shadow-none">Back</button></div>
+        <table class="table table-bordered caption-top">
+            <caption id="caption"><b></b></caption>
+            <thead>
+                <tr>
+                    <th>Beyond SLA</th>
+                    <th>Within SLA</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+
+    <div class="container-fluid" id="service" style="display: none;">
+        <div><button class="btn bg-primary text-white mt-5 shadow-none">Back</button></div>
+        <table class="table table-bordered caption-top">
+            <caption id="service_caption"><b></b></caption>
+            <thead>
+                <tr>
+                    <th>Submission</th>
+                    <th>Form-I issued</th>
+                    <th>Form-II issued</th>
+                    <th>Returned to Applicant for Payment</th>
+                    <th>Received back from Applicant</th>
+                    <th>Rejected</th>
+                    <th>Delivered</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+
+    <div class="container-fluid" id="details" style="display: none;">
+        <div><button class="btn bg-primary text-white mt-5 shadow-none">Back</button></div>
+        <table class="table table-bordered caption-top">
+            <caption id="details_caption"><b></b></caption>
+            <thead>
+                <tr>
+                    <th>Applicant's Name</th>
+                    <th>Service Name</th>
+                    <th>Service Status</th>
+                    <th>Date of Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="../public/assets/js/bootstrap.min.js"></script>
+    <script src="../public/assets/jquery/jquery-3.6.0.min.js"></script>
+    <script src="../public/assets/js/loader.js"></script>
+    <script src="../public/assets/js/test.js"></script>
+    <script src="../public/assets/js/csv.js"></script>
+</body>
+
+</html>
