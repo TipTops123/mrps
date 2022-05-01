@@ -1,21 +1,3 @@
-var groupBy = function (xs, key) {
-    return xs.reduce(function (rv, x) {
-        (rv[x[key]] = rv[x[key]] || []).push(x);
-        return rv;
-    }, {});
-};
-
-function sortByProperty(property) {
-    return function (a, b) {
-        if (a[property] > b[property])
-            return 1;
-        else if (a[property] < b[property])
-            return -1;
-
-        return 0;
-    }
-}
-
 function filterOfficeStatus(data, status) {
     var new_data = data.filter(item => item.office_status == status);
     return new_data;
@@ -29,63 +11,6 @@ function filterSlaStatus(data, status) {
 function filterServiceStatusCode(data, code) {
     var new_data = data.filter(item => item.service_status_code == code);
     return new_data;
-}
-
-function slaFilter(array1, array2) {
-    array2.forEach(function (element) {
-        var filtered = array1.filter(function (item) {
-            return element.heading == item.heading;
-        });
-        if (filtered.length == 0) {
-            array1.push({ "heading": element.heading, "total": 0 });
-        }
-    });
-    return array1;
-}
-
-var sla_arr = [{ "heading": 'Crossed SLA' }, { "heading": 'Within SLA' }];
-
-var service_arr = [
-    {
-        "service_status_code": 1,
-        "service_status": 'Submission'
-    },
-    {
-        "service_status_code": 2,
-        "service_status": 'Form-I issued'
-    },
-    {
-        "service_status_code": 3,
-        "service_status": 'Form-II issued'
-    },
-    {
-        "service_status_code": 4,
-        "service_status": 'Returned to Applicant for Payment'
-    },
-    {
-        "service_status_code": 5,
-        "service_status": 'Received back from Applicant'
-    },
-    {
-        "service_status_code": 6,
-        "service_status": 'Rejected'
-    },
-    {
-        "service_status_code": 7,
-        "service_status": 'Delivered'
-    },
-];
-
-function filterService(array1, array2) {
-    array2.forEach(function (element) {
-        var filtered = array1.filter(function (item) {
-            return element.service_status_code == Number(item.service_status_code);
-        });
-        if (filtered.length == 0) {
-            array1.push({ "service_status_code": element.service_status_code, "total": 0 });
-        }
-    });
-    return array1;
 }
 
 // function headerFix(data) {
@@ -119,7 +44,7 @@ $(document).ready(function () {
     var data;
     $.ajax({
         type: "GET",
-        url: "../public/assets/data/test1.csv",
+        url: "../public/assets/data/test.csv",
         dataType: "text",
         success: function (response) {
             data = $.csv.toObjects(response);
