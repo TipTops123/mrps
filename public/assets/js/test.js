@@ -123,28 +123,37 @@ $(document).ready(function () {
         dataType: "text",
         success: function (response) {
             data = $.csv.toObjects(response);
+            var app = "Pending With Applicant";
+            var applicant = filterOfficeStatus(data, app);
+            var app_count = applicant.length;
+            var pwo = "Pending With Office";
+            var office = filterOfficeStatus(data, pwo);
+            var off_count = office.length;
+            var pro = "Processed";
+            var processed = filterOfficeStatus(data, pro);
+            var pro_count = processed.length;
 
-            var office_status = Object.values(groupBy(data, 'office_status'));
-            var level1arr = [];
-            office_status.forEach((ele) => {
-                var status = ele[0].office_status;
-                var count = ele.length;
-                var off_sts_name = status.match(/\w+$/)[0].toLowerCase();
-                level1arr.push({ "heading": status, "total": count, "btnid": off_sts_name });
-            });
-            level1arr.sort(sortByProperty("heading"));
-
-            for (var c = 0; c < level1arr.length;) {
-                c++;
-                $('#btn' + c).text(level1arr[c - 1].heading);
-                $('#count' + c).text(level1arr[c - 1].total);
-                $('#card' + c + ' > button').attr('id', level1arr[c - 1].btnid);
-                $('#card' + c).show();
+            if (applicant.length > 0) {
+                $('#btn1').text(applicant[0].office_status);
+                $('#count1').text(app_count);
+                $('#card1 > button').attr('id', 'applicant');
+                $('#card1').show();
+            }
+            if (office.length > 0) {
+                $('#btn2').text(office[0].office_status);
+                $('#count2').text(off_count);
+                $('#card2 > button').attr('id', 'office');
+                $('#card2').show();
+            }
+            if (processed.length > 0) {
+                $('#btn3').text(processed[0].office_status);
+                $('#count3').text(pro_count);
+                $('#card3 > button').attr('id', 'processed');
+                $('#card3').show();
             }
 
             $('#applicant').on('click', function () {
-                var status = "Pending With Applicant";
-                var pwa_data = filterOfficeStatus(data, status);
+                var pwa_data = applicant;
                 var pwa_g_total = pwa_data.length;
                 var ws_sla_status = filterSlaStatus(pwa_data, 'Within SLA');
                 var cs_sla_status = filterSlaStatus(pwa_data, 'Crossed SLA');
