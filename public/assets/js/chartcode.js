@@ -34,7 +34,7 @@ $(document).ready(function () {
                 {
                     labels: labels,
                     datasets: [{
-                        label: '',
+                        label: 'Service Status',
                         backgroundColor: [
                             'rgb(32, 83, 117)',
                             'rgb(68, 106, 70)',
