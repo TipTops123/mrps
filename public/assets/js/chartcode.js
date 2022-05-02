@@ -34,7 +34,7 @@ $(document).ready(function () {
                 {
                     labels: labels,
                     datasets: [{
-                        label: 'Service Status',
+                        label: '',
                         backgroundColor: [
                             'rgb(32, 83, 117)',
                             'rgb(68, 106, 70)',
@@ -51,6 +51,12 @@ $(document).ready(function () {
                     cutoutPercentage: 60,
                     responsive: true,
                     maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Service Status'
+                        }
+                    }
                 }
             });
         }
